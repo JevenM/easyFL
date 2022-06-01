@@ -6,7 +6,10 @@ import os.path
 import importlib
 import os
 import json
-import task.modelfuncs
+import sys
+sys.path.insert(0,"D:\\Git\\easyFL\\task")
+
+import modelfuncs
 
 sample_list=['uniform', 'prob']
 agg_list=['uniform', 'weighted_scale', 'weighted_com']
