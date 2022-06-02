@@ -1,8 +1,6 @@
-import torch
-
-from utils.tools import *
+from utils.tools import read_option, setup_seed, initialize, output_filename
 import json
-from task import modelfuncs
+
 
 def main():
     # read options
@@ -13,9 +11,10 @@ def main():
     server = initialize(option)
     outdict = server.run()
     # save results as method{}_mpara{}_r{}_b{}_e{}_lr{}_p{}_seed{}.json file
-    filename=output_filename(option, server)
-    with open('task/'+ option['dataset'] + '/record/' + filename, 'w') as outfile:
+    filename = output_filename(option, server)
+    with open('task/' + option['dataset'] + '/record/' + filename, 'w') as outfile:
         json.dump(outdict, outfile)
+
 
 if __name__ == '__main__':
     main()
